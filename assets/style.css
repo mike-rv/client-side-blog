@@ -7,7 +7,7 @@
 
 body {
     display: grid;
-    grid-template-rows: 50px 150px 1000px 300px repeat(4, 1fr);
+    grid-template-rows: 50px 150px minmax(1000px, auto) 300px repeat(4, 1fr);
     grid-template-areas: 
     "navbar"
     "banner"
@@ -25,37 +25,72 @@ body {
     background-color: palegoldenrod;
 }
 
+.banner-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+}
+img {
+ width: 30%;
+}
+
 .section {
     grid-area: section;
     background-color: floralwhite;
     display: flex;
-    text-align: center;
-    justify-content: center;
-    padding: 50px;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
 }
+
 
 .comment-box-post {
     border: 1px solid black;
-    width: 800px;
-    height: 500px;
+    width: 80%;
+    height: 300px;
     display: flex;
     padding: 20px;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     flex: wrap;
     column-gap: 5px;
+    row-gap: 10px;
 }
 
-.text-input {
+.text-input-box {
     border: 1px solid black;
-    width: 700px;
+    width: 98%;
     height: 300px;
 }
 
 .button-bar {
     border: 1px solid black;
-    
+    width: 98%;
+    height: 100px;
+    display: flex;
+    padding: 10px;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.emoji-box {
+    border: 1px solid black;
+    width: 200px;
+    height: 80px;
+}
+
+.giphy-box {
+    border: 1px solid black;
+    width: 200px;
+    height: 80px;
+}
+
+.button-post {
+    width: 100px;
+    height: 50px;
 }
 
 .footer {
