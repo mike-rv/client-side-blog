@@ -7,24 +7,29 @@
 }
 
 body {
-    display: grid;
+    background-image: url("/assets/img/fakebook-background.jpg");
+background-size: cover;
+  background-position: center; 
+}
+.whole-page {
+   display: grid;
     grid-template-rows: 50px 150px minmax(1000px, auto) 300px repeat(4, 1fr);
     grid-template-areas: 
     "navbar"
     "banner"
     "section"
     "footer";
-background-image: url("/assets/img/fakebook-background.jpg");
+
 }
 
 .navbar {
     grid-area: navbar;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
 .banner {
     grid-area: banner;
-    background-color: white;
+    /* background-color: white; */
 }
 
 .banner-title {
@@ -39,7 +44,7 @@ img {
 
 .section {
     grid-area: section;
-    background-color: floralwhite;
+    /* background-color: floralwhite; */
     display: flex;
     row-gap: 10px;
     flex-direction: column;
