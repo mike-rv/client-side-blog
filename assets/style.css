@@ -10,11 +10,11 @@ body {
     background-size: cover;
     background-position: center;
     display: grid;
-    grid-template-rows: 100px 80vh 100px repeat(3, 1fr);
+    grid-template-rows: 100px 80vh repeat(2, 1fr);
     grid-template-areas:
         "header"
         "section"
-        "footer";
+        /* "footer"; */
 }
 
 .header {
@@ -43,7 +43,8 @@ body {
     /* row-gap: 10px; */
     flex-direction: column;
     align-items: center;
-    padding: 1%;
+    padding: 1% 0 5% 0;
+    row-gap: 3%;
 }
 
 .comment-box-post {
@@ -177,7 +178,21 @@ body {
     }
 }
 
-.footer {
+/* .footer {
     grid-area: footer;
     background-color: #93ccea;
-}
+} */
+
+/* .comment-box-reply {
+    border: 1px solid grey;
+    min-width: 60vw;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 9%;
+    background-color: #e0e0e0;
+    border-radius: 50px;
+    padding: 1%;
+} */
