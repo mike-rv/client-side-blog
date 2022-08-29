@@ -11,33 +11,32 @@
 </head>
 
 <body>
-    <div class="whole-page">
-    <div class="navbar"></div>
-    <div class="banner">
-        <div class="banner-title"><img src="/assets/img/facebook-fakebook.jpg" alt=""></div>
-    </div>
-    <div class="section">
-        <div class="text-input-title">Post A Comment</div>
-        <div class="comment-box-post">
+        <div class="header">
+            <div class="header-title">
+                <img src="/assets/img/fakebook-img1.jpg" alt="">
+            </div>
+        </div>
+        <div class="section">
+            <div class="comment-box-post">
                 <div class="text-input-box">
-                    <textarea class="text-area" name="" id="" cols="30" rows="10"></textarea>
+                    <textarea class="text-area" name="" maxlength="200"></textarea>
                 </div>
-                <div class="line"></div>
-<div style="display:inline-block;"></div>
+                <!-- <div class="line"></div>
+                <div style="display:inline-block;"></div> -->
                 <div class="button-bar">
                     <div class="emoji-box">
-                        <img src="assets/img/smileyface.png" alt="">
-                        <img src="assets/img/thumbsup.png" alt="">
-                        <img src="assets/img/thumbsdown.png" alt="">
+                        <img class="smiley-emoji" src="assets/img/smileyface.png" alt="">
+                        <img class="thumbs-up-emoji" src="assets/img/thumbsup.png" alt="">
+                        <img class="thumbs-down-emoji" src="assets/img/thumbsdown.png" alt="">
                     </div>
-                    <div class="giphy-box">Giphy</div>
+                    <div class="giphy-box">Giphy API</div>
                     <button class="button-post">Post</button>
+                </div>
+            </div>
+            <div class="comment-box-reply"></div>
         </div>
-    </div>
-    <div class="comment-box-reply"></div>
-    </div>
-    <div class="footer"></div>
-</div>
+        <div class="footer"></div>
+    
 </body>
 
 </html>
