@@ -6,15 +6,15 @@ const buttonPost = document.querySelector('.button-post')
 const inputArea = document.querySelector('.input-area')
 
 smileyEmoji.addEventListener('click', e => {
-    textArea.append(String.fromCodePoint(parseInt(0x1F642)))
+    inputArea.append(String.fromCodePoint(parseInt(0x1F642)))
 })
 
 thumbsUpEmoji.addEventListener('click', e => {
-    textArea.append(String.fromCodePoint(parseInt(0x1F44D)))
+    inputArea.append(String.fromCodePoint(parseInt(0x1F44D)))
 })
 
 thumbsDownEmoji.addEventListener('click', e => {
-    textArea.append(String.fromCodePoint(parseInt(0x1F44E)))
+    inputArea.append(String.fromCodePoint(parseInt(0x1F44E)))
 })
 
 buttonPost.addEventListener('click', function(e) {
@@ -56,7 +56,7 @@ e.preventDefault()
     })
 
 
-    // innerBox.append('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum id eum consequatur inventore ducimus culpa quia, impedit minima beatae voluptatem voluptate vero ea cum, praesentium similique natus ipsam eius. Nisi, exercitationem, praesentium minus eveniet tempora fugiat quos doloribus nam corporis esse assumenda labore laudantium totam ipsam beatae saepe maiores pariatur atque illo deserunt iusto cupiditate? Nihil, nesciunt obcaecati dolore ipsam repellat veniam laborum? Earum molestias, cum sint provident assumenda enim eius! Quos distinctio optio eveniet quaerat totam, laboriosam iusto quasi eum vel corporis debitis esse, neque error! Dignissimos facere molestiae ipsa optio itaque fugiat. Quo dignissimos natus sint itaque autem.')
+    innerBox.append('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum id eum consequatur inventore ducimus culpa quia, impedit minima beatae voluptatem voluptate vero ea cum, praesentium similique natus ipsam eius. Nisi.')
 })
 
 
