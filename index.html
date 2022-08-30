@@ -5,38 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/style.css">
-    <script defer src="/assets/script.js"></script>
+    <link rel="stylesheet" href="/client-side-blog/assets/style.css">
+    <script defer src="/client-side-blog/assets/script.js"></script>
     <title>Fakebook</title>
 </head>
 
 <body>
-        <div class="header">
-            <div class="header-title">
-                <img src="/assets/img/fakebook-img1.jpg" alt="">
-            </div>
+    <div class="header">
+        <div class="header-title">
+            <img src="/client-side-blog/assets/img/fakebook-img1.jpg" alt="">
         </div>
-        <div class="section">
-            <div class="comment-box-post">
-                <div class="text-input-box">
-                    <textarea class="text-area" name="" maxlength="200"></textarea>
-                </div>
-                <!-- <div class="line"></div>
-                <div style="display:inline-block;"></div> -->
-                <div class="button-bar">
-                    <div class="emoji-box">
-                        <img class="smiley-emoji" src="assets/img/smileyface.png" alt="">
-                        <img class="thumbs-up-emoji" src="assets/img/thumbsup.png" alt="">
-                        <img class="thumbs-down-emoji" src="assets/img/thumbsdown.png" alt="">
+    </div>
+    <div class="section">
+        <div class="comment-box-post">
+            <div class="text-input-box">
+                <form class="input-area" action="http://localhost:3000/post" method="POST">
+                    <div >
+                        <input type="text" name="comment">
                     </div>
-                    <div class="giphy-box">Giphy API</div>
-                    <button class="button-post">Post</button>
-                </div>
+                    <!-- <div class="line"></div>
+                <div style="display:inline-block;"></div> -->
+                    <div class="button-bar">
+                        <div class="emoji-box">
+                            <img class="smiley-emoji" src="assets/img/smileyface.png" alt="">
+                            <img class="thumbs-up-emoji" src="assets/img/thumbsup.png" alt="">
+                            <img class="thumbs-down-emoji" src="assets/img/thumbsdown.png" alt="">
+                        </div>
+                        <div class="giphy-box">Giphy API</div>
+                        <button type="submit" class="button-post">Post</button>
+                    </div>
+                </form>
             </div>
-            
         </div>
-        <!-- <div class="footer">footer</div> -->
-    
+
+    </div>
+    <!-- <div class="footer">foot</div> -->
+
 </body>
 
 </html>
