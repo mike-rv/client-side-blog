@@ -6,19 +6,19 @@ const buttonPost = document.querySelector('.button-post')
 const inputArea = document.querySelector('.input-area')
 
 smileyEmoji.addEventListener('click', e => {
-    textArea.append(String.fromCodePoint(parseInt(0x1F642)))
+    inputArea.append(String.fromCodePoint(parseInt(0x1F642)))
 })
 
 thumbsUpEmoji.addEventListener('click', e => {
-    textArea.append(String.fromCodePoint(parseInt(0x1F44D)))
+    inputArea.append(String.fromCodePoint(parseInt(0x1F44D)))
 })
 
 thumbsDownEmoji.addEventListener('click', e => {
-    textArea.append(String.fromCodePoint(parseInt(0x1F44E)))
+    inputArea.append(String.fromCodePoint(parseInt(0x1F44E)))
 })
 
-buttonPost.addEventListener('click', function(e) {
-e.preventDefault()
+buttonPost.addEventListener('click', function (e) {
+    e.preventDefault()
 
     const box = document.createElement('div')
 
@@ -32,7 +32,7 @@ e.preventDefault()
     box.style['background-color'] = '#e0e0e0';
     box.style['border-radius'] = '50px';
     box.style['padding'] = '1%'
-    
+
     section.appendChild(box)
 
     const innerBox = document.createElement('div')
@@ -50,13 +50,45 @@ e.preventDefault()
     box.appendChild(innerBox)
 
     fetch('http://localhost:3000/')
-    .then(resp => resp.text())
-    .then(data => {
-        innerBox.append(data)
-    })
+        .then(resp => resp.text())
+        .then(data => {
+            innerBox.append(data)
+        })
 
 
-    // innerBox.append('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum id eum consequatur inventore ducimus culpa quia, impedit minima beatae voluptatem voluptate vero ea cum, praesentium similique natus ipsam eius. Nisi, exercitationem, praesentium minus eveniet tempora fugiat quos doloribus nam corporis esse assumenda labore laudantium totam ipsam beatae saepe maiores pariatur atque illo deserunt iusto cupiditate? Nihil, nesciunt obcaecati dolore ipsam repellat veniam laborum? Earum molestias, cum sint provident assumenda enim eius! Quos distinctio optio eveniet quaerat totam, laboriosam iusto quasi eum vel corporis debitis esse, neque error! Dignissimos facere molestiae ipsa optio itaque fugiat. Quo dignissimos natus sint itaque autem.')
+
 })
 
+let APIKEY = "txsMIouNt5mOzBbVoneiBmy1yjhXwYub"
 
+document.addEventListener("DOMContentLoaded", init);
+function init() {
+  document.getElementById("btnSearch").addEventListener("click", ev => {
+    ev.preventDefault(); //to stop the page reload
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+    let str = document.getElementById("search").value.trim();
+    url = url.concat(str);
+    console.log(url);
+    fetch(url)
+      .then(response => response.json())
+      .then(content => {
+        //  data, pagination, meta
+        console.log(content.data);
+        console.log("META", content.meta);
+        let fig = document.createElement("figure");
+        let img = document.createElement("img");
+        let fc = document.createElement("figcaption");
+        img.src = content.data[0].images.downsized.url;
+        img.alt = content.data[0].title;
+        fc.textContent = content.data[0].title;
+        fig.appendChild(img);
+        fig.appendChild(fc);
+        let out = document.querySelector(".out");
+        section.insertAdjacentElement("afterbegin", fig);
+        document.querySelector("#search").value = "";
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  });
+}

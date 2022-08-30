@@ -48,13 +48,14 @@ body {
 }
 
 .comment-box-post {
+    order: 1;
     border: 1px solid grey;
     min-width: 60vw;
     min-height: 40vh;
     display: flex;
     /* padding: 20px; */
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     /* flex: wrap;
     flex-flow: column wrap;
@@ -66,10 +67,10 @@ body {
     padding: 1%;
 }
 
-.text-input-box {
+.input-container {
     margin-top: 1%;
     width: 90%;
-    height: 60%;
+    height: 100%;
     border-radius: 50px;
     display: flex;
     align-items: center;
