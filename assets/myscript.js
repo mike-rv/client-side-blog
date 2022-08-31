@@ -3,7 +3,7 @@ const btn = document.querySelector('.button-post');
 const p = document.querySelector('p');
 const form = document.querySelector('form');
 const input = document.querySelector('#post');
-const containerHistory = document.querySelector('.container-post-history')
+const containerHistory = document.querySelector('.white-background-comments')
 
 btn.addEventListener('click', () => {
     p.textContent = "No posts recorded";
