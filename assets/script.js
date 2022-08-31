@@ -61,39 +61,21 @@ const PostServer = () => {
 
 const postBoxTemplate = (post, id , comment) => {
   const box = document.createElement('div')
-
-  box.style.border = '1px solid grey';
-  box.style['min-width'] = '60vw'
-  box.style['min-height'] = '400px'
-  box.style['display'] = 'flex';
-  box.style['flex-direction'] = 'column';
-  box.style['justify-content'] = 'center';
-  box.style['row-gap'] = '9%';
-  box.style['background-color'] = '#e0e0e0';
-  box.style['border-radius'] = '50px';
-  box.style['padding'] = '1%';
+  box.classList.add("previous-comments");
 
   document.querySelector(".container-post-history").prepend(box)
 
 
   const innerBox = document.createElement('div')
 
-  innerBox.style.border = '1px solid grey';
-  // innerBox.style['min-width'] = '10%'
-  innerBox.style['min-height'] = '60%'
-  innerBox.style['background-color'] = 'white'
-  innerBox.style['padding'] = '3%'
-  innerBox.style['font-size'] = '100%'
-  innerBox.style['border-radius'] = '50px';
-  innerBox.style['padding'] = '5%'
-  innerBox.style['font-family'] = 'arial'
+  innerBox.classList.add("white-background-comments")
   innerBox.textContent = post;
 
   box.appendChild(innerBox)
 
   const interactionBox = document.createElement('div')
   interactionBox.style.border = '1px solid grey';
-  interactionBox.style['min-height'] = '10%';
+  interactionBox.style['min-height'] = '2vh';
   interactionBox.style['background-color'] = 'white';
   interactionBox.style['padding'] = '3%';
   interactionBox.style['font-size'] = '100%';
