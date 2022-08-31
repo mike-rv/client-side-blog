@@ -33,7 +33,12 @@ buttonPost.addEventListener('click', function (e) {
     box.style['border-radius'] = '50px';
     box.style['padding'] = '1%'
 
+
+
     section.appendChild(box)
+
+
+
 
     const innerBox = document.createElement('div')
 
@@ -48,6 +53,18 @@ buttonPost.addEventListener('click', function (e) {
     innerBox.style['font-family'] = 'arial'
 
     box.appendChild(innerBox)
+
+    const interactionBox = document.createElement('div')
+    interactionBox.style.border = '1px solid grey';
+    interactionBox.style['min-height'] = '10%';
+    interactionBox.style['background-color'] = 'white';
+    interactionBox.style['padding'] = '3%';
+    interactionBox.style['font-size'] = '100%';
+    interactionBox.style['border-radius'] = '50px';
+    interactionBox.style['padding'] = '5%';
+    interactionBox.style.bottom = "5%"
+
+    box.appendChild(interactionBox);
 
     const inputValue = inputArea.value
   const data = { inputValue }
