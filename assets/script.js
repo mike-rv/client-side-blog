@@ -49,13 +49,48 @@ buttonPost.addEventListener('click', function (e) {
 
     box.appendChild(innerBox)
 
-    fetch('http://localhost:3000/')
-        .then(resp => resp.text())
-        .then(data => {
-            innerBox.append(data)
-        })
+    const inputValue = inputArea.value
+  const data = { inputValue }
+
+//   fetch('https://localhost:3000/test/', {
+//   method: 'POST', // or 'PUT'
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(data),
+// })
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log('Success:', data);
+//   })
+//   .catch((error) => {
+//     console.error('Error:', error);
+//   });
+  // const  options = {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify(data)
+  // }
+  // fetch('https://localhost:3000/test', options)
+    // innerBox.textContent = data
+
+    // fetch('https://mock-zuckerberg.herokuapp.com/', options)
 
 
+    // fetch('https://mock-zuckerberg.herokuapp.com/1')
+    //     .then(resp => resp.json())
+    //     .then(data => {
+    //         innerBox.append(JSON.stringify(data))
+    //     })
+
+//     fetch('https://mock-zuckerberg.herokuapp.com/', {
+//   method: "POST",
+//   body: JSON.stringify(data)
+// }).then(res => {
+//     innerBox.append(JSON.stringify(body));
+// });
 
 })
 
