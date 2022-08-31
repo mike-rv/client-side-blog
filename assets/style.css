@@ -287,6 +287,102 @@ h1{
     padding: 1%;
 }
 
+.inner-reply-post {
+    border: 1px solid grey;
+    background-color: blue;
+    margin-top: 1%;
+    width: 90%;
+    height: 180px;
+    border-radius: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    resize: none;
+}
+
+.input-area-post {
+    margin-top: 1%;
+    width: 40%;
+    height: 180px;
+    border-radius: 50px;
+    resize: none;
+    font-size: 125%;
+    padding: 3%;
+}
+
+.button-bar-post {
+    border: 1px solid black;
+    height: 100px;
+    padding: 3%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom:auto;
+    width: 98%;
+}
+
+.emoji-box-post {
+    border: 1px solid black;
+    width: 20%;
+    height:  20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.emoji-box-post>img {
+    width: 20%;
+}
+
+.button-post {
+    width: 200px;
+    background-color: #0078D0;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    
+}
+
+.button-reply:before {
+    background-color: initial;
+    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 50%;
+    left: 4%;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    transition: all .3s;
+    width: 92%;
+}
+
+.button-reply:hover {
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+}
+
+.reply-button {
+    width: 200px;
+}
+
 /* .footer {
     grid-area: footer;
     background-color: #93ccea;
