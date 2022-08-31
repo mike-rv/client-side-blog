@@ -24,7 +24,7 @@
             <div class="text-input-box">
                 <form action="http://localhost:3000/post" method="POST">
                     <div >
-                        <textarea class="input-area" name="" id="post" cols="30" rows="10" placeholder="Post a comment..."></textarea>
+                        <textarea class="input-area" name="" id="post" cols="30" rows="10" placeholder="Post a comment..." maxlength="300"></textarea>
         
                     </div>
                     <!-- <div class="line"></div>
@@ -36,7 +36,7 @@
                             <img class="thumbs-down-emoji" src="assets/img/thumbsdown.png" alt="">
                         </div>
                         <div class="giphy-box">
-                        <form>
+                        <form id>
                             <label for="search">Giphy Search</label>
                             <input id="search" type="search" />
                             <button id="btnSearch">Go</button>
