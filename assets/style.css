@@ -208,6 +208,40 @@ h1{
     top: 0;
     transition: all .3s;
     width: 92%;
+}    
+
+#search{
+    padding-bottom: 5px;
+    border-radius: 50px;
+    margin: 0;
+    text-align: center;
+}
+
+#btnSearch {
+    width: 100px;
+    background-color: #2FC193;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 5px 5px 5px 5px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#btnSearch:hover{
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
 }
 
 .button-post:hover {
