@@ -19,97 +19,89 @@ thumbsDownEmoji.addEventListener('click', e => {
 
 buttonPost.addEventListener('click', function (e) {
     e.preventDefault()
-
-    const box = document.createElement('div')
-
-    box.style.border = '1px solid grey';
-    box.style['min-width'] = '60vw'
-    box.style['min-height'] = '400px'
-    box.style['display'] = 'flex';
-    box.style['flex-direction'] = 'column';
-    box.style['justify-content'] = 'center';
-    box.style['row-gap'] = '9%';
-    box.style['background-color'] = '#e0e0e0';
-    box.style['border-radius'] = '50px';
-    box.style['padding'] = '1%'
-
-
-
-    section.appendChild(box)
-
-
-
-
-    const innerBox = document.createElement('div')
-
-    innerBox.style.border = '1px solid grey';
-    // innerBox.style['min-width'] = '10%'
-    innerBox.style['min-height'] = '60%'
-    innerBox.style['background-color'] = 'white'
-    innerBox.style['padding'] = '3%'
-    innerBox.style['font-size'] = '100%'
-    innerBox.style['border-radius'] = '50px';
-    innerBox.style['padding'] = '5%'
-    innerBox.style['font-family'] = 'arial'
-
-    box.appendChild(innerBox)
-
-    const interactionBox = document.createElement('div')
-    interactionBox.style.border = '1px solid grey';
-    interactionBox.style['min-height'] = '10%';
-    interactionBox.style['background-color'] = 'white';
-    interactionBox.style['padding'] = '3%';
-    interactionBox.style['font-size'] = '100%';
-    interactionBox.style['border-radius'] = '50px';
-    interactionBox.style['padding'] = '5%';
-    interactionBox.style.bottom = "5%"
-
-    box.appendChild(interactionBox);
-
-    const inputValue = inputArea.value
-  const data = { inputValue }
-
-//   fetch('https://localhost:3000/test/', {
-//   method: 'POST', // or 'PUT'
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify(data),
-// })
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log('Success:', data);
-//   })
-//   .catch((error) => {
-//     console.error('Error:', error);
-//   });
-  // const  options = {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify(data)
-  // }
-  // fetch('https://localhost:3000/test', options)
-    // innerBox.textContent = data
-
-    // fetch('https://mock-zuckerberg.herokuapp.com/', options)
-
-
-    // fetch('https://mock-zuckerberg.herokuapp.com/1')
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //         innerBox.append(JSON.stringify(data))
-    //     })
-
-//     fetch('https://mock-zuckerberg.herokuapp.com/', {
-//   method: "POST",
-//   body: JSON.stringify(data)
-// }).then(res => {
-//     innerBox.append(JSON.stringify(body));
-// });
+    PostServer()
+    postBoxTemplate()
 
 })
+
+async function fetchText() {
+  let response = await fetch('https://mock-zuckerberg.herokuapp.com/');
+  let data = await response.json();
+  for (let i = 0; i < data.length; i++) {
+    postBoxTemplate(data[i].id, data[i].post, data[i].comment)
+  }
+  
+}
+
+const PostServer = () => {
+  fetch(`https://mock-zuckerberg.herokuapp.com/` , {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify({
+        post: document.querySelector('#post-content').value 
+      })
+    }).then(res => {
+      return res.json()
+    })
+      .then(data => console.log(data))
+      .catch(error => console.log('ERROR'))
+
+}
+
+const loadPage = () => {
+
+}
+
+const postBoxTemplate = (id, post, comment) => {
+  const box = document.createElement('div')
+
+  box.style.border = '1px solid grey';
+  box.style['min-width'] = '60vw'
+  box.style['min-height'] = '400px'
+  box.style['display'] = 'flex';
+  box.style['flex-direction'] = 'column';
+  box.style['justify-content'] = 'center';
+  box.style['row-gap'] = '9%';
+  box.style['background-color'] = '#e0e0e0';
+  box.style['border-radius'] = '50px';
+  box.style['padding'] = '1%';
+
+  section.appendChild(box)
+
+
+
+  const innerBox = document.createElement('div')
+
+  innerBox.style.border = '1px solid grey';
+  // innerBox.style['min-width'] = '10%'
+  innerBox.style['min-height'] = '60%'
+  innerBox.style['background-color'] = 'white'
+  innerBox.style['padding'] = '3%'
+  innerBox.style['font-size'] = '100%'
+  innerBox.style['border-radius'] = '50px';
+  innerBox.style['padding'] = '5%'
+  innerBox.style['font-family'] = 'arial'
+  innerBox.textContent = post;
+
+  box.appendChild(innerBox)
+
+  const interactionBox = document.createElement('div')
+  interactionBox.style.border = '1px solid grey';
+  interactionBox.style['min-height'] = '10%';
+  interactionBox.style['background-color'] = 'white';
+  interactionBox.style['padding'] = '3%';
+  interactionBox.style['font-size'] = '100%';
+  interactionBox.style['border-radius'] = '50px';
+  interactionBox.style['padding'] = '5%';
+  interactionBox.style.bottom = "5%"
+  interactionBox.textContent = comment;
+
+  box.appendChild(interactionBox);
+
+}
+
 
 let APIKEY = "txsMIouNt5mOzBbVoneiBmy1yjhXwYub"
 
@@ -144,3 +136,5 @@ function init() {
       });
   });
 }
+
+fetchText()
