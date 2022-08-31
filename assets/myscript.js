@@ -1,19 +1,3 @@
-//displays text input in previous comments history
-const btn = document.querySelector('.button-post');
-const p = document.querySelector('p');
-const form = document.querySelector('form');
-const input = document.querySelector('#post');
-const containerHistory = document.querySelector('.white-background-comments')
-
-btn.addEventListener('click', () => {
-    p.textContent = "No posts recorded";
-})
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const inputValue = input.value
-    p.textContent = inputValue
-})
 
 //code below not working correctly, need to implement. displays emoji in textarea
 const smileyEmoji = document.querySelector('.smiley-emoji')

@@ -84,16 +84,13 @@ h1{
 
 
 .comment-box-post {
-    order: 1;
-    border: 1px solid grey;
-
     border: 1px solid #5B71C7;
     min-width: 60vw;
     min-height: 40vh;
     display: flex;
     /* padding: 20px; */
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     flex-direction: column;
     /* flex: wrap;
     flex-flow: column wrap;
@@ -105,10 +102,10 @@ h1{
     padding: 1%;
 }
 
-.input-container {
+.text-input-box {
     margin-top: 1%;
     width: 90%;
-    height: 150%;
+    height: 60%;
     border-radius: 50px;
     display: flex;
     align-items: center;

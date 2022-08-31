@@ -20,18 +20,26 @@ thumbsDownEmoji.addEventListener('click', e => {
 buttonPost.addEventListener('click', function (e) {
     e.preventDefault()
     PostServer()
-    postBoxTemplate()
+    fetchText("notFirst")
 
 })
 
-async function fetchText() {
+async function fetchText(x) {
+
   let response = await fetch('https://mock-zuckerberg.herokuapp.com/');
   let data = await response.json();
+  if (x === "First"){
   for (let i = 0; i < data.length; i++) {
-    postBoxTemplate(data[i].id, data[i].post, data[i].comment)
-  }
-  
+    postBoxTemplate(data[i].post, data[i].id, data[i].comment)
+   } }
+   else
+   {
+    let response = await fetch('https://mock-zuckerberg.herokuapp.com/');
+    let data = await response.json();
+    postBoxTemplate(data[data.length - 1].post, data[data.length - 1].id, data[data.length - 1].comment)
+   }
 }
+
 
 const PostServer = () => {
   fetch(`https://mock-zuckerberg.herokuapp.com/` , {
@@ -50,11 +58,8 @@ const PostServer = () => {
 
 }
 
-const loadPage = () => {
 
-}
-
-const postBoxTemplate = (id, post, comment) => {
+const postBoxTemplate = (post, id , comment) => {
   const box = document.createElement('div')
 
   box.style.border = '1px solid grey';
@@ -68,7 +73,7 @@ const postBoxTemplate = (id, post, comment) => {
   box.style['border-radius'] = '50px';
   box.style['padding'] = '1%';
 
-  section.appendChild(box)
+  document.querySelector(".container-post-history").prepend(box)
 
 
   const innerBox = document.createElement('div')
@@ -102,39 +107,10 @@ const postBoxTemplate = (id, post, comment) => {
 }
 
 
+fetchText("First")
 
-let APIKEY = "txsMIouNt5mOzBbVoneiBmy1yjhXwYub"
-
-document.addEventListener("DOMContentLoaded", init);
-function init() {
-  document.getElementById("btnSearch").addEventListener("click", ev => {
-    ev.preventDefault(); //to stop the page reload
-    let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
-    let str = document.getElementById("search").value.trim();
-    url = url.concat(str);
-    console.log(url);
-    fetch(url)
-      .then(response => response.json())
-      .then(content => {
-        //  data, pagination, meta
-        console.log(content.data);
-        console.log("META", content.meta);
-        let fig = document.createElement("figure");
-        let img = document.createElement("img");
-        let fc = document.createElement("figcaption");
-        img.src = content.data[0].images.downsized.url;
-        img.alt = content.data[0].title;
-        fc.textContent = content.data[0].title;
-        fig.appendChild(img);
-        fig.appendChild(fc);
-        let out = document.querySelector(".out");
-        section.insertAdjacentElement("afterbegin", fig);
-        document.querySelector("#search").value = "";
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  });
+async function fetchNewPost() {
+  let response = await fetch('https://mock-zuckerberg.herokuapp.com/');
+  let data = await response.json();
+  postBoxTemplate(data[data.length - 1].post)
 }
-
-fetchText()
