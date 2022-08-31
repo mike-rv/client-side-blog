@@ -25,26 +25,39 @@ thumbsDownEmoji.addEventListener('click', e => {
 buttonPost.addEventListener('click', function (e) {
     e.preventDefault()
     PostServer()
-    fetchText("notFirst")
+    fetchContent("notFirst")
 
 })
 
-async function fetchText(x) {
+async function fetchContent(x, ID) {
 
   let response = await fetch('https://mock-zuckerberg.herokuapp.com/');
   let data = await response.json();
   if (x === "First"){
   for (let i = 0; i < data.length; i++) {
-    postBoxTemplate(data[i].post, (data[i].id), data[i].Comment_1)
+    postBoxTemplate(data[i].post, (data[i].id))
+    let response2 = await fetch(`https://mock-zuckerberg.herokuapp.com/${i+1}`);
+    let data2 = await response2.json();
+    for (const property in data2) {
+         FetchComment(`${property}`, `${data2[property]}`, i)
+      }
    } }
-   else
+   else if(x === "notFirst")
    {
     let response = await fetch('https://mock-zuckerberg.herokuapp.com/');
     let data = await response.json();
     postBoxTemplate(data[data.length - 1].post, data[data.length - 1].id);
+   }else{
+    
+    let response = await fetch(`https://mock-zuckerberg.herokuapp.com/${ID}`);
+    let data = await response.json();
+    let lastValue = data[Object.keys(data)[Object.keys(data).length - 1]];
+    let lastKey = Object.keys(data).pop();
+    document.querySelector(`#commentbox${ID}`).textContent += (lastKey.toString() + " : " + lastValue.toString())
    }
 }
-fetchText("First")
+fetchContent("First")
+
 
 
 const PostServer = () => {
@@ -147,7 +160,8 @@ const postBoxTemplate = (post, ID , comment) => {
 
   buttonReply.addEventListener(`click`, (e) => {
     commentServer(e)
-    addComment(e)
+    fetchContent("comment", (e.target.id).slice(6))
+
   })
 
 
@@ -165,12 +179,20 @@ const postBoxTemplate = (post, ID , comment) => {
 
 
 
-async function addComment(e)  {
-  PostID = (e.target.id).slice(7)
-  let response = await fetch(`https://mock-zuckerberg.herokuapp.com/${PostID}`);
-  let data = await response.json();
-  let commentID = ".Comment_"+ Object.keys(data[data.length - 1]).length.toString()
-  console.log(commentID)
-  console.log((data[PostID - 1]))
+async function FetchComment(key, value, ID)  {
+  let comment = (key.toString() + ": " + value.toString())
+  var isComment = key.includes("Comment")
+  if (isComment && value){
+    console.log(comment)
+    document.querySelector(`#commentbox${ID + 1}`).textContent += `  ${comment}` ;
+  }
 }
 
+
+// async function AddComment(ID) {
+//   let response = await fetch(`https://mock-zuckerberg.herokuapp.com/${ID}`);
+//   let data = await response.json();
+//   let lastValue = data[Object.keys(data)[Object.keys(data).length - 1]];
+//   let lastKey = Object.keys(data).pop();
+//   console.log(lastKey, lastValue);
+// }
