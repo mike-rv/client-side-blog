@@ -71,7 +71,6 @@ const postBoxTemplate = (id, post, comment) => {
   section.appendChild(box)
 
 
-
   const innerBox = document.createElement('div')
 
   innerBox.style.border = '1px solid grey';
@@ -101,6 +100,7 @@ const postBoxTemplate = (id, post, comment) => {
   box.appendChild(interactionBox);
 
 }
+
 
 
 let APIKEY = "txsMIouNt5mOzBbVoneiBmy1yjhXwYub"
