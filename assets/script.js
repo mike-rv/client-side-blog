@@ -147,11 +147,11 @@ const postBoxTemplate = (post, ID , comment) => {
     smileyServer(e)
   })
   
-  thumbsUpEmoji.addEventListener('click', e => {
+  imgThumbsUp.addEventListener('click', e => {
     likeServer(e)
   })
   
-  thumbsDownEmoji.addEventListener('click', e => {
+  imgThumbsDown.addEventListener('click', e => {
     dislikeServer(e)
   })
 
@@ -177,12 +177,6 @@ const postBoxTemplate = (post, ID , comment) => {
 
 
 
-
-// async function fetchNewPost() {
-//   let response = await fetch('https://mock-zuckerberg.herokuapp.com/');
-//   let data = await response.json();
-//   postBoxTemplate(data[data.length - 1].post)
-// }
 
 
 
@@ -219,7 +213,7 @@ const smileyServer = e => {
   fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
     method: 'PATCH',
     headers: {
-      smiley_counter: +1
+      smiley_count: +1
     }, 
     body: JSON.stringify({
       comment: document.querySelector(`#textbox${index}`).value 
@@ -232,14 +226,14 @@ const smileyServer = e => {
 }
 
 const dislikeServer = e => {
-  let index = ((e.target.id).slice(6))
+  let index = ((e.target.id).slice(7))
   fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
     }, 
     body: JSON.stringify({
-      dislike_counter: +1
+      dislike_count: 3
     })
   }).then(res => {
     return res.json()
