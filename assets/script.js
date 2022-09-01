@@ -199,7 +199,7 @@ const likeServer = e => {
       'Content-Type': 'application/json'
     }, 
     body: JSON.stringify({
-      like_counter: +1
+      like_counter: "1"
     })
   }).then(res => {
     return res.json()
@@ -213,7 +213,7 @@ const smileyServer = e => {
   fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
     method: 'PATCH',
     headers: {
-      smiley_count: +1
+      smiley_count: "1"
     }, 
     body: JSON.stringify({
       comment: document.querySelector(`#textbox${index}`).value 
@@ -233,7 +233,7 @@ const dislikeServer = e => {
       'Content-Type': 'application/json'
     }, 
     body: JSON.stringify({
-      dislike_count: 3
+      dislike_count: "1"
     })
   }).then(res => {
     return res.json()
