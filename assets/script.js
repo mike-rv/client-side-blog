@@ -54,6 +54,7 @@ async function fetchContent(x, ID) {
     let data = await response.json();
     let lastValue = data[Object.keys(data)[Object.keys(data).length - 1]];
     let lastKey = Object.keys(data).pop();
+    
     document.querySelector(`#commentbox${ID}`).textContent += (lastKey.toString() + " : " + lastValue.toString())
    }
 }
@@ -199,12 +200,12 @@ async function FetchComment(key, value, ID)  {
 const likeServer = e => {
   let index = ((e.target.id).slice(6))
   fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
-    method: 'POST',
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
     }, 
     body: JSON.stringify({
-      comment: document.querySelector(`#textbox${index}`).value 
+      like_counter: +1
     })
   }).then(res => {
     return res.json()
@@ -216,9 +217,9 @@ const likeServer = e => {
 const smileyServer = e => {
   let index = ((e.target.id).slice(6))
   fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
-    method: 'POST',
+    method: 'PATCH',
     headers: {
-      'Content-Type': 'application/json'
+      smiley_counter: +1
     }, 
     body: JSON.stringify({
       comment: document.querySelector(`#textbox${index}`).value 
@@ -233,12 +234,12 @@ const smileyServer = e => {
 const dislikeServer = e => {
   let index = ((e.target.id).slice(6))
   fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
-    method: 'POST',
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
     }, 
     body: JSON.stringify({
-      comment: document.querySelector(`#textbox${index}`).value 
+      dislike_counter: +1
     })
   }).then(res => {
     return res.json()
