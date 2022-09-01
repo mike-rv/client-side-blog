@@ -1,24 +1,24 @@
 
-//code below not working correctly, need to implement. displays emoji in textarea
-const smileyEmoji = document.querySelector('.smiley-emoji')
-const thumbsUpEmoji = document.querySelector('.thumbs-up-emoji')
-const thumbsDownEmoji = document.querySelector('.thumbs-down-emoji')
-const section = document.querySelector('.section')
-// const buttonPost = document.querySelector('.button-post')
-const inputArea = document.querySelector('.input-area')
+// //code below not working correctly, need to implement. displays emoji in textarea
+// const smileyEmoji = document.querySelector('.smiley-emoji')
+// const thumbsUpEmoji = document.querySelector('.thumbs-up-emoji')
+// const thumbsDownEmoji = document.querySelector('.thumbs-down-emoji')
+// const section = document.querySelector('.section')
+// // const buttonPost = document.querySelector('.button-post')
+// const inputArea = document.querySelector('.input-area')
 
-smileyEmoji.addEventListener('click', e => {
-    inputArea.append(String.fromCodePoint(parseInt(0x1F642)))
+// smileyEmoji.addEventListener('click', e => {
+//     inputArea.append(String.fromCodePoint(parseInt(0x1F642)))
     
-})
+// })
 
-thumbsUpEmoji.addEventListener('click', e => {
-    inputArea.append(String.fromCodePoint(parseInt(0x1F44D)))
-})
+// thumbsUpEmoji.addEventListener('click', e => {
+//     inputArea.append(String.fromCodePoint(parseInt(0x1F44D)))
+// })
 
-thumbsDownEmoji.addEventListener('click', e => {
-    inputArea.append(String.fromCodePoint(parseInt(0x1F44E)))
-})
+// thumbsDownEmoji.addEventListener('click', e => {
+//     inputArea.append(String.fromCodePoint(parseInt(0x1F44E)))
+// })
 
 //giphy API:
 let APIKEY = "txsMIouNt5mOzBbVoneiBmy1yjhXwYub"

@@ -121,13 +121,6 @@ h1{
     padding: 3%;
 }
 
-/* .line {
-    width: 100%;
-    height: 0;
-    border: 1px solid #C4C4C4;
-    display: inline-block;
-} */
-
 .button-bar {
     border: 2px solid #C7496F;
     display: flex;
@@ -335,6 +328,19 @@ h1{
 
 .emoji-box-post>img {
     width: 20%;
+}
+
+.giphy-box {
+    /* border: 1px solid black; */
+    background-color: #C7496F;
+    color: white;
+    border-radius: 56px;
+    padding: 15px;
+    width: 30%;
+    height: 20%;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    text-align: center;
 }
 
 .button-post {

@@ -7,6 +7,8 @@ const inputArea = document.querySelector('.input-area')
 const historySection = document.querySelector('.comment-history-section')
 const replyButton = document.querySelector('.reply-button')
 
+// main comment box
+
 smileyEmoji.addEventListener('click', e => {
     inputArea.append(String.fromCodePoint(parseInt(0x1F642)))
 })
@@ -20,13 +22,10 @@ thumbsDownEmoji.addEventListener('click', e => {
 })
 
 
-
-
 buttonPost.addEventListener('click', function (e) {
     e.preventDefault()
     PostServer()
     fetchContent("notFirst")
-
 })
 
 async function fetchContent(x, ID) {
@@ -74,7 +73,6 @@ const PostServer = () => {
     })
       .then(data => console.log(data))
       .catch(error => console.log('ERROR'))
-
 }
 
 
@@ -95,12 +93,13 @@ const commentServer = e => {
     .catch(error => console.log('ERROR')) 
 }
 
+///////// reply comment boxes
+
 const postBoxTemplate = (post, ID , comment) => {
   const box = document.createElement('div')
   box.classList.add("previous-comments");
 
   document.querySelector(".container-post-history").prepend(box)
-
 
   const innerBox = document.createElement('div')
 
@@ -136,15 +135,16 @@ const postBoxTemplate = (post, ID , comment) => {
   emojBoxPost.appendChild(imgSmiley)
   emojBoxPost.appendChild(imgThumbsUp)
   emojBoxPost.appendChild(imgThumbsDown)
-  smileyEmoji.addEventListener('click', e => {
+
+  imgSmiley.addEventListener('click', e => { // target text box area
   inputAreaPost.append(String.fromCodePoint(parseInt(0x1F642)))
   })
   
-  thumbsUpEmoji.addEventListener('click', e => {
+  imgThumbsUp.addEventListener('click', e => {
       inputAreaPost.append(String.fromCodePoint(parseInt(0x1F44D)))
   })
   
-  thumbsDownEmoji.addEventListener('click', e => {
+  imgThumbsDown.addEventListener('click', e => {
       inputAreaPost.append(String.fromCodePoint(parseInt(0x1F44E)))
   })
 
