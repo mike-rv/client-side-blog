@@ -137,6 +137,9 @@ const postBoxTemplate = (post, ID , comment) => {
   const smileyCounter = document.createElement('div')
   const thumbsUpCounter = document.createElement('div')
   const thumbsDownCounter = document.createElement('div')
+  smileyCounter.id = `smileyCount${ID}`
+  thumbsUpCounter.id = `likeCount${ID}`
+  thumbsDownCounter.id = `dislikeCount${ID}`
   emojiBoxCounter.classList.add('emoji-box-counter')
   emojiBoxContainer.appendChild(emojiBoxCounter)
   emojiBoxCounter.appendChild(smileyCounter)
