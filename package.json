@@ -1,0 +1,30 @@
+{
+  "name": "client-side-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "coverage": "jest --coverage",
+    "dev": "live-server --port=9000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike-rv/client-side-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mike-rv/client-side-blog/issues"
+  },
+  "homepage": "https://github.com/mike-rv/client-side-blog#readme",
+  "devDependencies": {
+    "jest": "^29.0.1",
+    "jest-environment-jsdom": "^29.0.1",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "coverage": "^0.4.1"
+  }
+}

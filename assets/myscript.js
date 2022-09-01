@@ -23,6 +23,7 @@ const section = document.querySelector('.section')
 // const buttonPost = document.querySelector('.button-post')
 const inputArea = document.querySelector('.input-area')
 
+//emoji code to be added to (posts history for reactions)
 smileyEmoji.addEventListener('click', e => {
     inputArea.append(String.fromCodePoint(parseInt(0x1F642)))
     
@@ -71,4 +72,22 @@ function init() {
   });
 }
 
+//POST request to Heroku server
+// const PostServer = () => {
+//     fetch(`https://mock-zuckerberg.herokuapp.com/` , {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }, 
+//         body: JSON.stringify({
+//           post: document.querySelector('#post-content').value 
+//         })
+//       }).then(res => {
+//         return res.json()
+//       })
+//         .then(data => console.log(data))
+//         .catch(error => console.log('ERROR'))
+//     }
 
+
+//create posts box/comments box when post button is clicked
