@@ -42,6 +42,7 @@ async function fetchContent(x, ID) {
          FetchComment(`${property}`, `${data2[property]}`, i)
       }
    } }
+
    else if(x === "notFirst")
    {
     let response = await fetch('https://mock-zuckerberg.herokuapp.com/');
@@ -136,7 +137,7 @@ const postBoxTemplate = (post, ID , comment) => {
   emojBoxPost.appendChild(imgSmiley)
   emojBoxPost.appendChild(imgThumbsUp)
   emojBoxPost.appendChild(imgThumbsDown)
-  smileyEmoji.addEventListener('click', e => {
+  imgSmiley.addEventListener('click', e => {
   inputAreaPost.append(String.fromCodePoint(parseInt(0x1F642)))
   })
   
@@ -165,7 +166,6 @@ const postBoxTemplate = (post, ID , comment) => {
   })
 
 
-
 }
 
 
@@ -189,10 +189,54 @@ async function FetchComment(key, value, ID)  {
 }
 
 
-// async function AddComment(ID) {
-//   let response = await fetch(`https://mock-zuckerberg.herokuapp.com/${ID}`);
-//   let data = await response.json();
-//   let lastValue = data[Object.keys(data)[Object.keys(data).length - 1]];
-//   let lastKey = Object.keys(data).pop();
-//   console.log(lastKey, lastValue);
-// }
+
+const likeServer = e => {
+  let index = ((e.target.id).slice(6))
+  fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }, 
+    body: JSON.stringify({
+      comment: document.querySelector(`#textbox${index}`).value 
+    })
+  }).then(res => {
+    return res.json()
+  })
+    .then(data => console.log(data))
+    .catch(error => console.log('ERROR')) 
+}
+
+const smileyServer = e => {
+  let index = ((e.target.id).slice(6))
+  fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }, 
+    body: JSON.stringify({
+      comment: document.querySelector(`#textbox${index}`).value 
+    })
+  }).then(res => {
+    return res.json()
+  })
+    .then(data => console.log(data))
+    .catch(error => console.log('ERROR')) 
+}
+
+const dislikeServer = e => {
+  let index = ((e.target.id).slice(6))
+  fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }, 
+    body: JSON.stringify({
+      comment: document.querySelector(`#textbox${index}`).value 
+    })
+  }).then(res => {
+    return res.json()
+  })
+    .then(data => console.log(data))
+    .catch(error => console.log('ERROR')) 
+}
