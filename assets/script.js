@@ -4,7 +4,7 @@ const thumbsDownEmoji = document.querySelector('.thumbs-down-emoji')
 const section = document.querySelector('.section')
 const buttonPost = document.querySelector('.button-post')
 const inputArea = document.querySelector('.input-area')
-const historySection = document.querySelector('.comment-history-section')
+const historySection = document.querySelector('.container-history-section')
 const replyButton = document.querySelector('.reply-button')
 
 smileyEmoji.addEventListener('click', e => {
@@ -98,49 +98,87 @@ const commentServer = e => {
 }
 
 const postBoxTemplate = (post, ID , comment) => {
+  const buffer = document.createElement('div')
   const box = document.createElement('div')
+  const historyPostSection = document.querySelector(".container-post-history")
+  buffer.classList.add("buffer");
   box.classList.add("previous-comments");
-
-  document.querySelector(".container-post-history").prepend(box)
-
+  historyPostSection.prepend(buffer) // add buffer css = .buffer {height: 50px;}
+  historyPostSection.prepend(box)
 
   const innerBox = document.createElement('div')
-
   innerBox.classList.add("white-background-comments")
-  innerBox.textContent = post;
-
+  innerBox.textContent = post; // this doesn't make innerBox appear???
   box.appendChild(innerBox)
+
+  const replyContainerMid = document.createElement('div')
+  replyContainerMid.classList.add("reply-container-middle")
+  box.appendChild(replyContainerMid)
 
   const inputAreaPost = document.createElement('textarea')
   inputAreaPost.classList.add('input-area-post')
-  inputAreaPost.id = `textbox${ID}`;
-  box.appendChild(inputAreaPost)
+  inputAreaPost.id = `textbox${ID}`; //???
+  replyContainerMid.appendChild(inputAreaPost)
 
-  const commentSection = document.createElement('div')
-  commentSection.classList.add('white-background-comments')
-  commentSection.id = `commentbox${ID}`
-  box.appendChild(commentSection);
+  const replyBoxMid = document.createElement('div')
+  replyBoxMid.classList.add('reply-box-mid')
+  replyBoxMid.id = `commentbox${ID}`; //  
+  replyContainerMid.appendChild(replyBoxMid)
 
   const buttonBarPost = document.createElement('div')
   buttonBarPost.classList.add('button-bar-post')
   box.appendChild(buttonBarPost)
 
-  const emojBoxPost = document.createElement('div')
+  const emojiBoxContainer = document.createElement('div')
+  emojiBoxContainer.classList.add('emoji-box-container')
+  buttonBarPost.appendChild(emojiBoxContainer)
+
+  const emojiBoxCounter = document.createElement('div')
+  const smileyCounter = document.createElement('div')
+  const thumbsUpCounter = document.createElement('div')
+  const thumbsDownCounter = document.createElement('div')
+  emojiBoxCounter.classList.add('emoji-box-counter')
+  emojiBoxContainer.appendChild(emojiBoxCounter)
+  emojiBoxCounter.appendChild(smileyCounter)
+  emojiBoxCounter.appendChild(thumbsUpCounter)
+  emojiBoxCounter.appendChild(thumbsDownCounter)
+
+
+  const emojiBoxPost = document.createElement('div')
   const imgSmiley = document.createElement('img')
   const imgThumbsUp = document.createElement('img')
   const imgThumbsDown = document.createElement('img')
-    
+
   imgSmiley.src = "assets/img/smileyface.png"
   imgThumbsUp.src = "assets/img/thumbsup.png"
   imgThumbsDown.src = "assets/img/thumbsdown.png"
-  emojBoxPost.classList.add('emoji-box-post')
-  buttonBarPost.appendChild(emojBoxPost)
-  emojBoxPost.appendChild(imgSmiley)
-  emojBoxPost.appendChild(imgThumbsUp)
-  emojBoxPost.appendChild(imgThumbsDown)
+
+
+  emojiBoxPost.classList.add('emoji-box-post')
+  emojiBoxContainer.appendChild(emojiBoxPost)
+  emojiBoxPost.appendChild(imgSmiley)
+  emojiBoxPost.appendChild(imgThumbsUp)
+  emojiBoxPost.appendChild(imgThumbsDown)
   imgSmiley.id = `smiley${ID}`
   imgThumbsUp.id = `like${ID}`
   imgThumbsDown.id = `dislike${ID}`
+
+  const giphyBoxPost = document.createElement('div')
+  giphyBoxPost.classList.add('giphy-box-post')
+  buttonBarPost.appendChild(giphyBoxPost)
+
+  const giphyHTMLForm = `<form><label for="search">Giphy Search</label>` + `
+<input id="search" type="search"/>` +
+    `<button id="btnSearch">Go</button></form>`
+  giphyBoxPost.innerHTML = giphyHTMLForm
+
+  const buttonReply = document.createElement('button')
+  const replyText = document.createTextNode('Reply')
+  buttonReply.id = `button${ID}`
+  buttonReply.classList.add('button-post')
+  buttonReply.classList.add('reply-button')
+  buttonReply.appendChild(replyText)
+  buttonBarPost.appendChild(buttonReply)
 
 
   imgSmiley.addEventListener('click', e => {
@@ -155,20 +193,12 @@ const postBoxTemplate = (post, ID , comment) => {
     dislikeServer(e)
   })
 
-  
-  const buttonReply = document.createElement('button')
-  const replyText = document.createTextNode('Reply')
-  buttonReply.id = `button${ID}`
-  buttonReply.classList.add('button-post')
-  buttonReply.classList.add('reply-button')
-  buttonReply.appendChild(replyText)
-  buttonBarPost.appendChild(buttonReply)
+
 
 
   buttonReply.addEventListener(`click`, (e) => {
     commentServer(e)
     fetchContent("comment", (e.target.id).slice(6))
-
   })
 
 
@@ -192,14 +222,14 @@ async function FetchComment(key, value, ID)  {
 
 
 const likeServer = e => {
-  let index = ((e.target.id).slice(6))
+  let index = ((e.target.id).slice(4))
   fetch(`https://mock-zuckerberg.herokuapp.com/${index}` , {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
     }, 
     body: JSON.stringify({
-      like_counter: "1"
+      like_count: "1"
     })
   }).then(res => {
     return res.json()
