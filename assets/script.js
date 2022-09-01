@@ -20,13 +20,10 @@ thumbsDownEmoji.addEventListener('click', e => {
 })
 
 
-
-
 buttonPost.addEventListener('click', function (e) {
     e.preventDefault()
     PostServer()
     fetchContent("notFirst")
-
 })
 
 async function fetchContent(x, ID) {
@@ -163,14 +160,32 @@ const postBoxTemplate = (post, ID , comment) => {
   imgThumbsUp.id = `like${ID}`
   imgThumbsDown.id = `dislike${ID}`
 
-  const giphyBoxPost = document.createElement('div')
-  giphyBoxPost.classList.add('giphy-box-post')
-  buttonBarPost.appendChild(giphyBoxPost)
+  const giphyBoxContainer = document.createElement('div')
+  giphyBoxContainer.classList.add('giphy-box-container')
+  buttonBarPost.appendChild(giphyBoxContainer)
+  const giphySearchTitle = document.createElement('div')
+  giphySearchTitle.classList.add('giphy-search-title')
+  giphySearchTitle.classList.add('giphy-search-ttle')
+  const giphyTitleText = document.createTextNode('Giphy Search')
+  const giphySearchInput = document.createElement('input')
+  const giphyButton = document.createElement('button')
+  const searchText = document.createTextNode('Go')
+  giphyBoxContainer.appendChild(giphySearchTitle)
+  giphySearchTitle.appendChild(giphyTitleText)
+  const giphyBuffer = document.createElement('div')
+  giphyBuffer.classList.add('giphy-buffer')
+  giphyBoxContainer.appendChild(giphyBuffer)
+  giphyBoxContainer.appendChild(giphySearchInput)
+  giphyBoxContainer.appendChild(giphyButton)
+  giphyButton.appendChild(searchText)
 
-  const giphyHTMLForm = `<form><label for="search">Giphy Search</label>` + `
-<input id="search" type="search"/>` +
-    `<button id="btnSearch">Go</button></form>`
-  giphyBoxPost.innerHTML = giphyHTMLForm
+  // old code:
+  // const giphyHTMLForm = `<form><label for="search">Giphy Search</label>
+  // <input id="search" type="search"/>
+  // <button id="btnSearch">Go</button></form>`
+  // giphyBoxPost.innerHTML = giphyHTMLForm
+  // buttonBarPost.appendChild(giphyBoxPost)
+
 
   const buttonReply = document.createElement('button')
   const replyText = document.createTextNode('Reply')
