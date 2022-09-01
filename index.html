@@ -8,8 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/client-side-blog/assets/style.css">
-    <script defer src="/client-side-blog/assets/myscript.js"></script>
+    <link rel="stylesheet" href="./assets/style.css">
+    <script defer src="./assets/script.js"></script>
+    <script defer src="./assets/myscript.js"></script>
     <title>Fakebook</title>
 </head>
 
@@ -22,9 +23,13 @@
     <div class="section">
         <div class="comment-box-post">
             <div class="text-input-box">
-                <form action="http://localhost:3000/post" method="POST">
+                <form>
                     <div >
-                        <textarea class="input-area" name="" id="post" cols="30" rows="10" placeholder="Post a comment..." maxlength="300"></textarea>
+
+                        <textarea class="input-area" name="" id="post-content" cols="30" rows="10" placeholder="Post a comment..." maxlength="300"></textarea>
+
+                     
+
         
                     </div>
                     <!-- <div class="line"></div>
@@ -54,12 +59,7 @@
         <h2 class="history-title">Previous Posts</h2>
     </div>
     <div class="container-post-history">
-      
-        <div class="previous-comments">
-            <div class="white-background-comments">
-            <p>Sample post</p>
-            </div>
-        </div>
+
           
     </div>
     <!-- <div class="footer">foot</div> -->
