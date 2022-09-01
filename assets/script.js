@@ -137,16 +137,21 @@ const postBoxTemplate = (post, ID , comment) => {
   emojBoxPost.appendChild(imgSmiley)
   emojBoxPost.appendChild(imgThumbsUp)
   emojBoxPost.appendChild(imgThumbsDown)
+  imgSmiley.id = `smiley${ID}`
+  imgThumbsUp.id = `like${ID}`
+  imgThumbsDown.id = `dislike${ID}`
+
+
   imgSmiley.addEventListener('click', e => {
-  inputAreaPost.append(String.fromCodePoint(parseInt(0x1F642)))
+    smileyServer(e)
   })
   
   thumbsUpEmoji.addEventListener('click', e => {
-      inputAreaPost.append(String.fromCodePoint(parseInt(0x1F44D)))
+    likeServer(e)
   })
   
   thumbsDownEmoji.addEventListener('click', e => {
-      inputAreaPost.append(String.fromCodePoint(parseInt(0x1F44E)))
+    dislikeServer(e)
   })
 
   
@@ -164,6 +169,7 @@ const postBoxTemplate = (post, ID , comment) => {
     fetchContent("comment", (e.target.id).slice(6))
 
   })
+
 
 
 }
