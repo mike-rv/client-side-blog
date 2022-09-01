@@ -35,7 +35,7 @@ async function fetchContent(x, ID) {
   let data = await response.json();
   if (x === "First"){
   for (let i = 0; i < data.length; i++) {
-    postBoxTemplate(data[i].post, (data[i].id))
+    postBoxTemplate(data[i].post, (data[i].id), data[i].smiley_count, data[i].like_count, data[i].dislike_count)
     let response2 = await fetch(`https://mock-zuckerberg.herokuapp.com/${i+1}`);
     let data2 = await response2.json();
     for (const property in data2) {
@@ -47,8 +47,8 @@ async function fetchContent(x, ID) {
    {
     let response = await fetch('https://mock-zuckerberg.herokuapp.com/');
     let data = await response.json();
-    postBoxTemplate(data[data.length - 1].post, data[data.length - 1].id);
-   }else{
+    postBoxTemplate(data[data.length - 1].post, data[data.length - 1].id , data[data.length - 1].smiley_count, data[data.length - 1].like_count, data[data.length - 1].dislike_count);
+   }else if(x === "comment"){
     
     let response = await fetch(`https://mock-zuckerberg.herokuapp.com/${ID}`);
     let data = await response.json();
@@ -56,6 +56,13 @@ async function fetchContent(x, ID) {
     let lastKey = Object.keys(data).pop();
     
     document.querySelector(`#commentbox${ID}`).textContent += (lastKey.toString() + " : " + lastValue.toString())
+   }else{
+    let response = await fetch(`https://mock-zuckerberg.herokuapp.com/${ID}`);
+    let data = await response.json();
+
+    document.querySelector(`#smileyCount${ID}`).textContent = data.smiley_count;
+    document.querySelector(`#likeCount${ID}`).textContent = data.like_count;
+    document.querySelector(`#dislikeCount${ID}`).textContent = data.dislike_count;
    }
 }
 fetchContent("First")
@@ -97,7 +104,7 @@ const commentServer = e => {
     .catch(error => console.log('ERROR')) 
 }
 
-const postBoxTemplate = (post, ID , comment) => {
+const postBoxTemplate = (post, ID , happy, like, dislike ) => {
   const buffer = document.createElement('div')
   const box = document.createElement('div')
   const historyPostSection = document.querySelector(".container-post-history")
@@ -137,6 +144,9 @@ const postBoxTemplate = (post, ID , comment) => {
   const smileyCounter = document.createElement('div')
   const thumbsUpCounter = document.createElement('div')
   const thumbsDownCounter = document.createElement('div')
+  smileyCounter.textContent = happy;
+  thumbsUpCounter.textContent = like;
+  thumbsDownCounter.textContent = dislike;
   smileyCounter.id = `smileyCount${ID}`
   thumbsUpCounter.id = `likeCount${ID}`
   thumbsDownCounter.id = `dislikeCount${ID}`
@@ -186,14 +196,17 @@ const postBoxTemplate = (post, ID , comment) => {
 
   imgSmiley.addEventListener('click', e => {
     smileyServer(e)
+    fetchContent("reaction", (e.target.id).slice(6))
   })
   
   imgThumbsUp.addEventListener('click', e => {
     likeServer(e)
+    fetchContent("reaction", (e.target.id).slice(4))
   })
   
   imgThumbsDown.addEventListener('click', e => {
     dislikeServer(e)
+    fetchContent("reaction", (e.target.id).slice(7))
   })
 
 
