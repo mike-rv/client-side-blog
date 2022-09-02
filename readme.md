@@ -56,10 +56,10 @@ Technologies used
 
 ##Screenshots
 ###Screenshot 1
-<img src="<img src=./img/Screenshot1.png" alt="drawing" width="500"/>
+<img src="<img src=/img/Screenshot1.png" alt="drawing" width="500"/>
 
 ###Screenshot 2
-<img src="<img src=./img/Screenshot2.png" alt="drawing" width="500"/>
+<img src="<img src=/img/Screenshot2.png" alt="drawing" width="500"/>
 
 ##Future Features
 
