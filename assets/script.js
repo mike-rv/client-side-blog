@@ -167,7 +167,7 @@ const postBoxTemplate = (post, ID , happy, like, dislike) => {
   imgThumbsDown.src = "assets/img/thumbsdown.png"
 
 
-  emojiBoxPost.classList.add('emoji-box-post')
+  emojiBoxPost.classList.add('emoji-box')
   emojiBoxContainer.appendChild(emojiBoxPost)
   emojiBoxPost.appendChild(imgSmiley)
   emojiBoxPost.appendChild(imgThumbsUp)
@@ -176,14 +176,25 @@ const postBoxTemplate = (post, ID , happy, like, dislike) => {
   imgThumbsUp.id = `like${ID}`
   imgThumbsDown.id = `dislike${ID}`
 
-  const giphyBoxPost = document.createElement('div')
-  giphyBoxPost.classList.add('giphy-box-post')
-  buttonBarPost.appendChild(giphyBoxPost)
 
-  const giphyHTMLForm = `<form><label for="search">Giphy Search</label>` + `
-<input id="search" type="search"/>` +
-    `<button id="btnSearch">Go</button></form>`
-  giphyBoxPost.innerHTML = giphyHTMLForm
+
+  const giphyBoxContainer = document.createElement('div')
+  giphyBoxContainer.classList.add('giphy-box-container')
+  buttonBarPost.appendChild(giphyBoxContainer)
+  const giphySearchTitle = document.createElement('div')
+  giphySearchTitle.classList.add('giphy-search-title')
+  const giphyTitleText = document.createTextNode('Giphy Search')
+  const giphySearchInput = document.createElement('input')
+  const giphyButton = document.createElement('button')
+  const searchText = document.createTextNode('Go')
+  giphyBoxContainer.appendChild(giphySearchTitle)
+  giphySearchTitle.appendChild(giphyTitleText)
+  const giphyBuffer = document.createElement('div')
+  giphyBuffer.classList.add('giphy-buffer')
+  giphyBoxContainer.appendChild(giphyBuffer)
+  giphyBoxContainer.appendChild(giphySearchInput)
+  giphyBoxContainer.appendChild(giphyButton)
+  giphyButton.appendChild(searchText)
 
   const buttonReply = document.createElement('button')
   const replyText = document.createTextNode('Reply')
@@ -231,7 +242,7 @@ async function FetchComment(key, value, ID)  {
   var isComment = key.includes("Comment")
   if (isComment && value){
     console.log(comment)
-    document.querySelector(`#commentbox${ID + 1}`).textContent += `  ${comment}` ;
+    document.querySelector(`#commentbox${ID + 1}`).textContent += `      ${comment}` ;
   }
 }
 

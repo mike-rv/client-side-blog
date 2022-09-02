@@ -103,7 +103,7 @@ h1{
     width: 30%;
 }
 
-.giphy-box {
+/* .giphy-box {
     background-color: #C7496F;
     color: white;
     border-radius: 56px;
@@ -118,7 +118,7 @@ h1{
     align-items: center;
     justify-content: space-between;
     gap: 50px;
-}
+} */
 
 .giphy-box-buffer {
     height: 10px;
@@ -314,19 +314,7 @@ h1{
     /* justify-content: space-around;  */
 }
 
-.emoji-box-post {
-    /* border: 1px solid black; */
-    width: 100%;
-    /* height:  20%; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
 
-.emoji-box-post>img {
-    width: 12%;
-}
 
 .emoji-box-counter {
     /* border: 1px solid black; */
@@ -341,8 +329,9 @@ h1{
 .emoji-box-counter>div {
     border: 1px solid black;
     width: 20%;
-    height:  30px;
+    height:  20px;
     border-radius: 50px;
+    text-align: center;
 }
 
 .giphy-box-container {
@@ -366,6 +355,7 @@ h1{
     font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
     font-weight: bold;
 }
+
 
 .giphy-buffer {
     height: 10px;
@@ -444,4 +434,38 @@ h1{
 .button-post:hover {
     box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
     transform: scale(1.05);
+}
+
+.emoji-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.emoji-box>img {
+    width: 30%;
+}
+
+.giphy-box {
+    background-color: #C7496F;
+    color: white;
+    border-radius: 56px;
+    padding: 1%;
+    width: 40%;
+    height: 30%;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.giphy-box-buffer {
+    height: 10px;
 }
