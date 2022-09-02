@@ -33,7 +33,7 @@ let APIKEY = "txsMIouNt5mOzBbVoneiBmy1yjhXwYub"
         // fig.appendChild(img);
         // fig.appendChild(fc);
         // let out = document.querySelector(".out");
-        document.querySelector("#textbox2").value = img.src
+        historyContainer.appendChild(img);
         document.querySelector("#search").value = "";
       })
       .catch(err => {
