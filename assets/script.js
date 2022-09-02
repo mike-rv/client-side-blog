@@ -4,8 +4,8 @@ const thumbsDownEmoji = document.querySelector('.thumbs-down-emoji')
 const section = document.querySelector('.section')
 const buttonPost = document.querySelector('.button-post')
 const inputArea = document.querySelector('.input-area')
-const historySection = document.querySelector('.container-history-section')
 const replyButton = document.querySelector('.reply-button')
+const historySection = document.querySelector('.container-post-history')
 
 smileyEmoji.addEventListener('click', e => {
     inputArea.append(String.fromCodePoint(parseInt(0x1F642)))
@@ -104,7 +104,7 @@ const commentServer = e => {
     .catch(error => console.log('ERROR')) 
 }
 
-const postBoxTemplate = (post, ID , happy, like, dislike ) => {
+const postBoxTemplate = (post, ID , happy, like, dislike) => {
   const buffer = document.createElement('div')
   const box = document.createElement('div')
   const historyPostSection = document.querySelector(".container-post-history")

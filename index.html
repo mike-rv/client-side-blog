@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css">
     <script defer src="./assets/script.js"></script>
-    <script defer src="./assets/myscript.js"></script>
+    <script defer src="./assets/giphy-script.js"></script>
     <title>Fakebook</title>
 </head>
 
@@ -19,48 +19,48 @@
         <div class="header-title">
             <h1>Fakebook</h1>
         </div>
-
-        <div class="section">
-            <div class="comment-box-post">
-                <div class="text-input-box">
-                    <form>
-                        <div>
-                            <textarea class="input-area" name="" id="post-content" cols="30" rows="10"
-                                placeholder="Post a comment..."></textarea>
-
-                        </div>
-                      
-                        <div class="button-bar">
-                            <div class="emoji-box">
-                                <img class="smiley-emoji" src="assets/img/smileyface.png" alt="">
-                                <img class="thumbs-up-emoji" src="assets/img/thumbsup.png" alt="">
-                                <img class="thumbs-down-emoji" src="assets/img/thumbsdown.png" alt="">
-                            </div>
-                            <div class="giphy-box">
-                                <form>
-                                    <label for="search">Giphy Search</label>
-                                    <input id="search" type="search" />
-                                    <button id="btnSearch">Go</button>
-                                </form>
-                            </div>
-                            <input class="button-post" type="submit" value="Post" name="post">
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="post-history-section">
-            <h2 class="history-title">Previous Posts</h2>
-        </div>
-        <div class="container-post-history">
-
-
-        </div>
-        <!-- <div class="footer">foot</div> -->
     </div>
-    
+    <div class="section">
+        <div class="comment-box-post">
+            <div class="text-input-box">
+                <form>
+                    <textarea class="input-area" name="" id="post-content" maxlength="350"
+                        placeholder="Post a comment..."></textarea>
+                </form>
+                <div class="comment-box-buffer"></div>
+                <div class="button-bar">
+                    <div class="emoji-box">
+                        <img class="smiley-emoji" src="assets/img/smileyface.png" alt="">
+                        <img class="thumbs-up-emoji" src="assets/img/thumbsup.png" alt="">
+                        <img class="thumbs-down-emoji" src="assets/img/thumbsdown.png" alt="">
+                    </div>
+                    <div class="giphy-box">
+                        <form>
+                            <div class="giphy-box-buffer"></div>   
+                            <label class="giphy-box-title" for="search">Giphy Search</label>
+                            <div class="giphy-box-buffer"></div>
+                            <input id="search" type="search" />
+                            <div class="giphy-box-buffer"></div>
+                            <button id="btnSearch">Go</button>
+                        </form>
+                    </div>
+                    <div class="button-post-container">
+                    <input class="button-post" type="submit" value="Post" name="post">
+                </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="previous-posts-banner">
+        <h2 class="history-title">Previous Posts</h2>
+    </div>
+    <div class="container-post-history"></div>
+    <!-- <div class="footer">foot</div> -->
+
+
 </body>
 
 </html>
