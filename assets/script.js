@@ -4,7 +4,7 @@ const thumbsDownEmoji = document.querySelector('.thumbs-down-emoji')
 const section = document.querySelector('.section')
 const buttonPost = document.querySelector('.button-post')
 const inputArea = document.querySelector('.input-area')
-const historySection = document.querySelector('.container-history-section')
+const historySection = document.querySelector('.container-post-history')
 const replyButton = document.querySelector('.reply-button')
 
 smileyEmoji.addEventListener('click', e => {
