@@ -56,10 +56,10 @@ Technologies used
 
 ##Screenshots
 ###Screenshot 1
-<img src="./assets/img/screenshot1.png" alt="drawing" width="500"/>
+<img src="[./assets/img/screenshot1.png](https://github.com/mike-rv/client-side-blog/blob/staging/assets/img/Screenshot1.png)" alt="drawing" width="500"/>
 
 ###Screenshot 2
-<img src="./assets/img/screenshot2.png" alt="drawing" width="500"/>
+<img src="[./assets/img/screenshot2.png](https://github.com/mike-rv/client-side-blog/blob/staging/assets/img/Screenshot2.png)" alt="drawing" width="500"/>
 
 ##Future Features
 
